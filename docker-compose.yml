@@ -1,4 +1,4 @@
-
+name: CipherNote
 services:
   client:
     build: 
@@ -9,6 +9,8 @@ services:
     volumes:
       - ./client:/app
       - /app/node_modules
+    depends_on:
+      - server
 
   server:
     build: 
@@ -18,3 +20,22 @@ services:
       - "5000:5000"
     volumes:
       - ./server:/app
+    environment:
+      - DATABASE_URI=postgresql://yash:next@postgres:5432/cipher_note
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    restart: always 
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: yash
+      POSTGRES_PASSWORD: next
+      POSTGRES_DB: cipher_note
+    volumes:
+      - pg_data:/var/lib/postgresql/data  
+
+volumes:
+  pg_data:
