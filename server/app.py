@@ -1,8 +1,9 @@
 import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+from models import UserModel
+
+from db import db
 
 class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
