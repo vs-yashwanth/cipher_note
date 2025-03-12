@@ -20,6 +20,6 @@ def create_app():
 
     @app.route('/')
     def hello_world():
-        return '<h3>Hello CipherNote server!</h3>'
+        return '<h3>Hello CipherNote!</h3>'
 
     return app
