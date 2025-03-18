@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 
-from api import user_bp
+from routes import user_bp
 
 from db import db
 
