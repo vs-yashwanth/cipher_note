@@ -6,3 +6,4 @@ class UserSchema(Schema):
     name = fields.Str()
     email = fields.Email()
     created_on = fields.DateTime(dump_only=True)
+
